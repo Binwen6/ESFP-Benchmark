@@ -1,5 +1,9 @@
 **Disclaimer**: This repository contains the complete source code, corpus, and experimental results for the ESFP Benchmark, developed as a submission to the Measuring Progress Toward AGI — Cognitive Abilities competition on Kaggle. All materials are released for transparency, reproducibility, and educational purposes only. Reuse of any part of this work in academic publications or competition submissions without proper attribution constitutes plagiarism and is strictly prohibited.
 
+**Kaggle Benchmark** links:
+- [Write-up](https://www.kaggle.com/competitions/kaggle-measuring-agi/writeups/new-writeup-1776173871950)
+- [Benchmark Page](https://www.kaggle.com/benchmarks/binwen666/esfp-epistemic-stance-flexibility-probing)
+
 ---
 
 ### Project Name
@@ -143,11 +147,11 @@ Responses are analyzed through four metrics in ascending order of linguistic dep
 
 #### Composite Scoring
 
-$$\text{PSI\_scaled} = \text{clip}\!\left(\frac{\text{PSI\_mean}}{\text{PSI\\ceil}},\ 0,\ 1\right)$$
+$$\mathrm{PSI}_{\mathrm{scaled}} = \mathrm{clip}\!\left(\frac{\mathrm{PSI}_{\mathrm{mean}}}{\mathrm{PSI}_{\mathrm{ceil}}},\ 0,\ 1\right)$$
 
-$$\text{flex\_signal} = 0.20 \times \delta\text{AR} + 0.50 \times \delta\text{SCD} + 0.30 \times \text{PSI\_scaled}$$
+$$\mathrm{flex\_signal} = 0.20 \times \delta\mathrm{AR} + 0.50 \times \delta\mathrm{SCD} + 0.30 \times \mathrm{PSI}_{\mathrm{scaled}}$$
 
-$$\text{ESFP} = \text{flex\_signal} \times (1 + 0.25 \times \text{CPC\_filtered})$$
+$$\mathrm{ESFP} = \mathrm{flex\_signal} \times (1 + 0.25 \times \mathrm{CPC}_{\mathrm{filtered}})$$
 
 **PSI\_ceil** is the 95th percentile of PSI\_mean across all evaluated models, computed post-hoc and applied retroactively to prevent any single model's semantic sensitivity from dominating the scale. **CPC\_filtered** clamps Fleiss' κ to $[0, \infty)$ — inconsistent models receive no penalty, only consistent ones receive a multiplicative bonus.
 
